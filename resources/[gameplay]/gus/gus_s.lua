@@ -442,6 +442,7 @@ addEventHandler('onPlayerFinish', root,
 				if (currentStreakPlayer ~= source) then
 					currentStreakPlayer = source
 					currentPlayerStreakCount = 1;
+
 				else
 					if (currentStreakPlayer) then
 						currentPlayerStreakCount = currentPlayerStreakCount+1;
@@ -451,7 +452,9 @@ addEventHandler('onPlayerFinish', root,
 				end
 			end
 		else
-			outputChatBox("there's no enough players online to record a streak. ("..getPlayerCount().."/"..requiredPlayersToRecordAStreak..")", root, 0, 255, 0)
+			if (rank == 1) then
+				outputChatBox("there's no enough players online to record a streak. ("..getPlayerCount().."/"..requiredPlayersToRecordAStreak..")", root, 0, 255, 0)
+			end
 		end
     end
 )
